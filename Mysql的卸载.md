@@ -1,4 +1,4 @@
-首先删除mysql:
+### 首先删除mysql:
 
 ###sudo apt-get remove mysql-*
 
@@ -24,3 +24,31 @@
 运行它
 
 
+
+
+
+#### 配置远程连接mysql
+
+```
+MySQL>GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'yourpassword' WITH GRANT OPTION;
+MySQL>FLUSH PRIVILEGES;
+```
+
+
+
+#### 远程连接mysql时
+
+报错:
+
+ERROR 2003 (HY000): Can’t connect to MySQL server on ‘127.0.0.1’ (111)
+
+解决方法：
+
+```
+sudo vi /etc/mysql/my.cnf
+
+注释掉下面这行：
+#bind-address           = 127.0.0.1
+
+sudo /etc/init.d/mysql restart
+```
