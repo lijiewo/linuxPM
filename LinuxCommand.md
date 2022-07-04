@@ -251,3 +251,40 @@ Java 是世界上使用最广泛的编程语言之一. 它也被认为是高效,
 
 
 注意: 几乎所有的Linux发行版都带有gcc编译器, 大多数发行版都内建了g++ 和 java 编译器, 有些也可能没有. 你可以用apt 或 yum 安装需要的包.
+
+
+
+### 21. java安装
+
+```
+sudo mkdir -p /usr/java
+sudo tar zvxf jdk-8u131-linux-x64.tar.gz -C /usr/java
+
+vi /etc/profile
+# 在export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL下添加
+
+export JAVA_HOME=/usr/java/jdk1.8.0_331
+export PATH=$JAVA_HOME/bin:$PATH
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+
+使环境变量生效
+source /etc/profile
+
+检查是否配置成功
+java -version
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
